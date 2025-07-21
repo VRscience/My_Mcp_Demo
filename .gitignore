@@ -8,6 +8,5 @@ wheels/
 
 # Virtual environments
 .venv
-
 # VScode files
-*Zone.Identifier
+*:Zone.Identifier
