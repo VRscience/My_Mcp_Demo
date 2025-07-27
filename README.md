@@ -54,7 +54,7 @@ Make the server is running before using MCP tools in VS Code.
 
 ### Demo Server Tools
 - `get_last_email_text` - Retrieve the text of the latest email
-- `summarize_text(text, num_sentences=3)` - Summarize the
+- `summarize_text(text, num_sentences=3)` - Summarize any text or just the last email text
 
 ## Development
 
