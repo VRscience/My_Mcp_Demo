@@ -17,7 +17,7 @@ logging.basicConfig(level=logging.WARNING, format='%(asctime)s - %(levelname)s -
 # Add an email retrieval tool
 
 @mcp.tool()
-def get_last_email_text(username, password = "anrxlvavrzpnqjqw"):
+def get_last_email_text(username, password):
     """
     Si connette a Gmail tramite IMAP, recupera l'ultima email nella casella di posta
     ed estrae il suo testo.
