@@ -76,3 +76,8 @@ The IMAP server includes SSL fallback handling for development environments. If 
 
 ### Port Conflicts
 If the default ports are in use, you can specify different ports when starting the servers.
+
+## Prompt Example
+
+### Retrive email and create summary
+"Retrieve email from [your email address] with password [gmail app password] using the tool get_last_email_text, then summarize the latest email text using the tool summarize_text."
