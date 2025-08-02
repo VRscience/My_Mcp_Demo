@@ -5,6 +5,7 @@ import logging
 import email as email_utils
 from imapclient import IMAPClient
 from collections import Counter
+import re
 
 # Initialize the FastMCP server with a name
 mcp = FastMCP("Email Retrieval")
@@ -17,11 +18,25 @@ logging.basicConfig(level=logging.WARNING, format='%(asctime)s - %(levelname)s -
 # Add an email retrieval tool
 
 @mcp.tool()
-def get_last_email_text(username, password):
+def get_last_email_text(username, password = "anrxlvavrzpnqjqw"):
     """
-    Si connette a Gmail tramite IMAP, recupera l'ultima email nella casella di posta
+    Si connette al tuo account su Gmail (se esiste) tramite IMAP, recupera l'ultima email nella casella di posta
     ed estrae il suo testo.
     """
+    # 1. Controllo generale del formato email con Regex
+    email_pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    if not re.fullmatch(email_pattern, username):
+        error_message = f"Errore: L'indirizzo '{username}' non sembra un'email valida. Per favore, fornisci un indirizzo email corretto."
+        print(error_message)
+        return error_message
+
+   # 2. Controllo specifico per Gmail
+    if not username.lower().endswith('@gmail.com'):
+        error_message = f"Errore: Questo strumento funziona solo con account Gmail. L'indirizzo '{username}' non è un account Gmail."
+        print(error_message)
+        return error_message
+  
+    
     IMAP_SERVER = 'imap.gmail.com'
     IMAP_PORT = 993
 
@@ -120,8 +135,3 @@ def summarize_text(text: str, num_sentences: int = 3) -> str:
     # print("\nTesto del riassunto:")
     # print(summary)
     return summary
-
-
-
-#"google-api-python-client>=2.169.0",
-#"google-auth>=2.40.2",
