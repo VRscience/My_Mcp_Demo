@@ -1,7 +1,7 @@
 # MCP Example Project
 
 This project contains one Model Context Protocol (MCP) servers:
-1. **mcp_demo** - A demo server using FastMCP with tools to retrieve the lastest email from Gmail and to make a summary of the latest email using a text summarization model locally
+1. **mcp_demo** - A demo server using FastMCP with tools to retrieve the lastest n emails from Gmail and to make a summary of the latest n emails using a text summarization model locally
 
 ## Prerequisites
 
@@ -30,8 +30,8 @@ mcp run server_Excercise.py --transport sse
 ```
 
 This will start the demo server with tools:
-- `get_last_email_text` - Get the text of the latest email
-- `summarize_text` - Summarize the latest email text
+- `get_last_email_text` - Get the text of the latest n emails
+- `summarize_text` - Summarize the email text
 
 
 
@@ -53,8 +53,8 @@ Make the server is running before using MCP tools in VS Code.
 ## Available Tools
 
 ### Demo Server Tools
-- `get_last_email_text` - Retrieve the text of the latest email
-- `summarize_text(text, num_sentences=3)` - Summarize any text or just the last email text
+- `get_last_email_text` - Retrieve the text of the latest n emails
+- `summarize_text(text, num_sentences=3)` - Summarize any text or just a given email text
 
 ## Development
 
